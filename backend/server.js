@@ -5,27 +5,30 @@ const path = require("path");
 const connectDB = require("./config/db");
 
 const authRoutes = require("./routes/authRoutes");
-const userRoutes  = require("./routes/userRoutes");
-const taskRoutes  = require("./routes/taskRoutes");
-const reportRoutes  = require("./routes/reportRoutes");
+const userRoutes = require("./routes/userRoutes");
+const taskRoutes = require("./routes/taskRoutes");
+const reportRoutes = require("./routes/reportRoutes");
 
 const app = express();
 
 app.use(
     cors({
-        origin: process.env.CLIENT_URL || '*',
+        origin: process.env.CLIENT_URL || "*",
         methods: ["GET", "POST", "PUT", "DELETE"],
         allowedHeaders: ["Content-Type", "Authorization"],
     })
 );
 
-//Connect Databse
+//Connect Database
 connectDB();
 
 
 //middleware
 app.use(express.json());
 
+app.get("/health", (req, res) => {
+    res.status(200).json({ status: "ok" });
+});
 
 //Routes
 app.use("/api/auth", authRoutes);
@@ -38,5 +41,4 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 //start Server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
+app.listen(PORT, "0.0.0.0", () => console.log(`Server running on port ${PORT}`));

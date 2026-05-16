@@ -1,4 +1,10 @@
-export const BASE_URL = "https://santosh-task-manager-production.up.railway.app";
+const LOCAL_API_URL = "http://localhost:5000";
+const PRODUCTION_API_URL = "https://santosh-task-manager-production.up.railway.app";
+
+export const BASE_URL =
+    import.meta.env.VITE_API_BASE_URL ||
+    (import.meta.env.DEV ? LOCAL_API_URL : PRODUCTION_API_URL);
+
 export const API_PATHS = {
     AUTH: {
         SIGNUP: "/api/auth/register",
