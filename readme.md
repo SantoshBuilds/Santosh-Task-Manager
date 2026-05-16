@@ -65,7 +65,7 @@ role: "member"
 ### Admin Login
 
 ```text
-Email: sk843329sk@gmail.com
+Email: Santosh1admingmail.com
 Password: 12345678
 ```
 
