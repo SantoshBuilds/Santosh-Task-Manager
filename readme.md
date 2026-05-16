@@ -66,7 +66,7 @@ role: "member"
 
 ```text
 Email: Santosh1admingmail.com
-Password: 12345678
+Password: santosh12
 ```
 
 > These credentials are for local/demo testing only. For production deployment, use secure credentials and do not expose real passwords publicly.
